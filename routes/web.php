@@ -18,9 +18,9 @@ Route::get('/', function () {
 });
 
 Route::get('/testuser', function() {
-    return view('manageLoginAndRegistration.user_dashboard');
+    return view('manageDashboardAndContent.user_dashboard');
 });
 
 Route::get('/testadmin', function() {
-    return view('manageLoginAndRegistration.admin_dashboard');
+    return view('manageDashboardAndContent.admin_dashboard');
 });
