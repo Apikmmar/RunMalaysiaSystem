@@ -1,4 +1,4 @@
-@extends('usercomponents.master')
+@extends('components.master')
 
 @section('content')
     this is user home page

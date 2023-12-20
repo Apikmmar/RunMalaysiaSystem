@@ -9,9 +9,11 @@
                 </button>
             </div>
             <div>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                {{-- if else will conclude if user or admin --}}
+                {{-- user --}}
+                {{-- <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item" style="margin: 0px 30pxpx">
+                    <li class="nav-item" style="margin: 0px 30px">
                         <a class="nav-link fw-bold h4" aria-current="page" href="#">HOME</a>
                     </li>
                     <li class="nav-item" style="margin:0px 30px">
@@ -21,7 +23,19 @@
                         <a class="nav-link fw-bold h4" href="#">ABOUT US</a>
                     </li>
                     </ul>
+                </div> --}}
+                {{-- admin --}}
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item" style="margin-right:30px">
+                        <a class="nav-link fw-bold h4" aria-current="page" href="#">MANAGE EVENTS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fw-bold h4" href="#">MANAGE USERS</a>
+                    </li>
+                    </ul>
                 </div>
+
             </div>
             <div class="dropdown" style="margin-left: 26%;">
                 <button class="btn p-0" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
