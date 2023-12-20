@@ -48,4 +48,13 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'user_password' => 'hashed',
     ];
+
+    public function role() {
+        $this->hasOne(Role::class);
+    }
+
+    public function participants()
+    {
+        return $this->hasMany(Participant::class);
+    }
 }
