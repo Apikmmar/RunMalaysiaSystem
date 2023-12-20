@@ -17,10 +17,22 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/testuser', function() {
+Route::get('/about_us', function() {
+    return view('manageDashboardAndContent.about_us');
+});
+
+Route::get('/user_dashboard', function() {
     return view('manageDashboardAndContent.user_dashboard');
 });
 
-Route::get('/testadmin', function() {
+Route::get('/admin_dashboard', function() {
     return view('manageDashboardAndContent.admin_dashboard');
+});
+
+Route::get('/admin_profile', function() {
+    return view('manageProfile.admin_profile');
+});
+
+Route::get('/user_profile', function() {
+    return view('manageProfile.user_profile');
 });

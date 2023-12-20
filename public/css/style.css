@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
 #navbarbackcolor {
     background-color: rgba(255, 221, 182, 1);
 }
@@ -15,4 +18,20 @@
 
 .dropdown-toggle::after {
     display: none;
+}
+
+.aboutrunmalaysiaimg {
+    width: 400px;
+    height: auto;
+    margin-top: 25px;
+}
+
+.aboutkbsimg {
+    width: 170px;
+    height: auto;
+}
+
+.currentphoto {
+    height: 350px;
+    width: auto;
 }
