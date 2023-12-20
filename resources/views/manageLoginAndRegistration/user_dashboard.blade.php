@@ -1,7 +1,7 @@
-@extends('components.master')
+@extends('usercomponents.master')
 
 @section('content')
-    test page only ahoii
+    this is user home page
     <br>
     <button class="btn btn-lg bg-light">hahaha</button>
 @endsection

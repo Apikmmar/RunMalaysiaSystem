@@ -17,6 +17,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/test', function() {
-    return view('testapp');
+Route::get('/testuser', function() {
+    return view('manageLoginAndRegistration.user_dashboard');
+});
+
+Route::get('/testadmin', function() {
+    return view('manageLoginAndRegistration.admin_dashboard');
 });
