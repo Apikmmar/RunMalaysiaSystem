@@ -35,7 +35,7 @@
     </nav> --}}
 
     {{-- user --}}
-    <nav class="navbar navbar-expand-lg navbar-light bg-white">
+    <nav class="fixed-top navbar navbar-expand-lg navbar-light bg-white">
         <div class="d-flex justify-content-start align-items-center container-fluid" id="navbarbackcolor">
             <div style="margin:0% 16.5% 0% 10%;">
                 <a class="navbar-brand" href="/user_dashboard">
