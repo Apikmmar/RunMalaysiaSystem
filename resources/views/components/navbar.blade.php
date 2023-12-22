@@ -13,7 +13,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item" style="margin-right:28px">
-                        <a class="nav-link fw-bold h4" aria-current="page" href="#">MANAGE EVENTS</a>
+                        <a class="nav-link fw-bold h4" aria-current="page" href="manage_events">MANAGE EVENTS</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link fw-bold h4" href="/listofuser">MANAGE USERS</a>

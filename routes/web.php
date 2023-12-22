@@ -27,6 +27,14 @@ Route::get('/admin_profile', function() {
     return view('manageProfile.admin_profile');
 });
 
+Route::get('/manage_events', function() {
+    return view('manageRunningEvents.manage_events');
+});
+
+Route::get('/event_details', function() {
+    return view('manageRunningEvents.manage_event_details');
+});
+
 Route::get('/listofuser', function() {
     return view('manageUserRecord.user_events_record');
 });

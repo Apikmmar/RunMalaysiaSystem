@@ -87,10 +87,10 @@
             </div>
         </div>
     </form>
-
+    <br>
     <div class="container">
         <div class="d-flex flex-column bd-highlight mb-3">
-            <div class="p-2 bd-highlight">
+            <div class="bd-highlight">
                 <p class="h4 fw-bold text-center">
                     You have not joined any event yet.
                 </p>
@@ -99,20 +99,20 @@
                     Listed Joined Events:
                 </p>
             </div>
-            <div class="p-2 bd-highlight">
+            <div class="bd-highlight">
                 <table class="table">
                     <thead>
                         <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">Event Join</th>
-                            <th scope="col">Date</th>
+                            <th scope="col" class="text-center">#</th>
+                            <th scope="col" class="text-center">Event Join</th>
+                            <th scope="col" class="text-center">Date</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
+                            <th scope="row" class="text-center">1</th>
+                            <td class="text-center">Mark</td>
+                            <td class="text-center">Otto</td>
                         </tr>
                     </tbody>
                 </table>
