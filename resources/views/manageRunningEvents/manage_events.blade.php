@@ -4,6 +4,11 @@
     
     <br>
     <div class="container">
+        @if(session('success'))
+            <div id="success-message" class="alert alert-success">
+                {{ session('success') }}
+            </div>
+        @endif
         <div class="d-flex flex-column bd-highlight mb-3">
             <div class="bd-highlight">
                 <p class="h4 fw-bold text-center">
@@ -48,7 +53,8 @@
             </div>
         </div>
         <br>
-        <form action="" method="post">
+        <form action="/manage_events" method="post">
+            @csrf
             <div>
                 <p class="h4 fw-bold">NEW EVENTS:</p>
             </div>
@@ -75,7 +81,7 @@
                             <label for="formFile" class="form-label">Event Banner:</label>
                         </div>
                         <div class="col-8">
-                            <input class="form-control" type="file" id="formFile" name="photo">
+                            <input class="form-control" type="file" id="formFile" name="eventphoto">
                         </div>
                     </div>
                 </div>
@@ -101,7 +107,7 @@
                             <label class="form-label">Event Description:</label>
                         </div>
                         <div class="col-8">
-                            <textarea class="form-control" aria-label="With textarea" name="eventlocation" placeholder="Event Description" ></textarea>
+                            <textarea class="form-control" aria-label="With textarea" name="eventdesc" placeholder="Event Description" ></textarea>
                         </div>
                     </div>
                 </div>

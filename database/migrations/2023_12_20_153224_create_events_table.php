@@ -18,7 +18,7 @@ return new class extends Migration
             $table->date('event_date');
             $table->time('event_time');
             $table->string('event_location');
-            $table->string('event_bannerpath');
+            $table->string('event_bannerpath')->nullable();
             $table->timestamps();
         });
     }

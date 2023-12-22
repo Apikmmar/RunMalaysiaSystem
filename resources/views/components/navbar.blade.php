@@ -1,5 +1,5 @@
     {{-- admin --}}
-    {{-- <nav class="fixed-top navbar navbar-expand-lg navbar-light bg-white">
+    <nav class="fixed-top navbar navbar-expand-lg navbar-light bg-white">
         <div class="d-flex justify-content-start align-items-center container-fluid" id="navbarbackcolor">
             <div style="margin:0% 16.5% 0% 10%;">
                 <a class="navbar-brand" href="/admin_dashboard">
@@ -32,10 +32,10 @@
                 </div>
             </div>
         </div>
-    </nav> --}}
+    </nav>
 
     {{-- user --}}
-    <nav class="fixed-top navbar navbar-expand-lg navbar-light bg-white">
+    {{-- <nav class="fixed-top navbar navbar-expand-lg navbar-light bg-white">
         <div class="d-flex justify-content-start align-items-center container-fluid" id="navbarbackcolor">
             <div style="margin:0% 16.5% 0% 10%;">
                 <a class="navbar-brand" href="/user_dashboard">
@@ -70,4 +70,4 @@
                 </div>
             </div>
         </div>
-    </nav>
+    </nav> --}}

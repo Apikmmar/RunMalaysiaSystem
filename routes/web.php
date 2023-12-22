@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminEventsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,10 +26,6 @@ Route::get('/admin_dashboard', function() {
 
 Route::get('/admin_profile', function() {
     return view('manageProfile.admin_profile');
-});
-
-Route::get('/manage_events', function() {
-    return view('manageRunningEvents.manage_events');
 });
 
 Route::get('/event_details', function() {
@@ -60,3 +57,9 @@ Route::get('/user_profile', function() {
 Route::get('/about_us', function() {
     return view('manageDashboardAndContent.about_us');
 });
+
+Route::get('/manage_events', function() {
+    return view('manageRunningEvents.manage_events');
+})->name('manage_events');
+
+Route::post('/manage_events', [AdminEventsController::class, 'createEvent']);
