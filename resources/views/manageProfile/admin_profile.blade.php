@@ -89,32 +89,36 @@
     </form>
 
     <div class="container">
-        <div class="d-flex row justify-content-center">
-            
-            <p class="h4 fw-bold">
-                You not joining any event yet
+        <div class="d-flex flex-column bd-highlight mb-3">
+            <div class="p-2 bd-highlight">
+                <p class="h4 fw-bold text-center">
+                    You have not joined any event yet.
+                </p>
+                <p class="h4 fw-bold text-center">
 
-
-                Listed Joined Event:
-            </p>
-
-            <table class="table">
-                <thead>
-                  <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Event Join</th>
-                    <th scope="col">Date</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                  </tr>
-                </tbody>
-            </table>
+                    Listed Joined Events:
+                </p>
+            </div>
+            <div class="p-2 bd-highlight">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Event Join</th>
+                            <th scope="col">Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>Mark</td>
+                            <td>Otto</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
+    
 
 @endsection

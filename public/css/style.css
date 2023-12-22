@@ -55,3 +55,9 @@
 .join-eventlink:hover {
     color: rgb(212, 152, 0)
 }
+
+.operation_icon {
+    width: 30px;
+    height: 30px;
+    align-items: center;
+}

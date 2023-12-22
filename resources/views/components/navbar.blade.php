@@ -1,5 +1,5 @@
     {{-- admin --}}
-    {{-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="fixed-top navbar navbar-expand-lg navbar-light bg-white">
         <div class="d-flex justify-content-start align-items-center container-fluid" id="navbarbackcolor">
             <div style="margin:0% 16.5% 0% 10%;">
                 <a class="navbar-brand" href="/admin_dashboard">
@@ -16,7 +16,7 @@
                         <a class="nav-link fw-bold h4" aria-current="page" href="#">MANAGE EVENTS</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link fw-bold h4" href="#">MANAGE USERS</a>
+                        <a class="nav-link fw-bold h4" href="/listofuser">MANAGE USERS</a>
                     </li>
                     </ul>
                 </div>
@@ -27,15 +27,15 @@
                     <img src="{{ asset('images/profile.png') }}" alt="Profile" class="homeimage2 rounded-circle">
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item" href="#">Profile</a>
+                    <a class="dropdown-item" href="/admin_profile">Profile</a>
                     <a class="dropdown-item" href="#">Logout</a>
                 </div>
             </div>
         </div>
-    </nav> --}}
+    </nav>
 
     {{-- user --}}
-    <nav class="fixed-top navbar navbar-expand-lg navbar-light bg-white">
+    {{-- <nav class="fixed-top navbar navbar-expand-lg navbar-light bg-white">
         <div class="d-flex justify-content-start align-items-center container-fluid" id="navbarbackcolor">
             <div style="margin:0% 16.5% 0% 10%;">
                 <a class="navbar-brand" href="/user_dashboard">
@@ -70,4 +70,4 @@
                 </div>
             </div>
         </div>
-    </nav>
+    </nav> --}}

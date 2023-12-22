@@ -17,14 +17,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/about_us', function() {
-    return view('manageDashboardAndContent.about_us');
-});
 
-Route::get('/user_dashboard', function() {
-    return view('manageDashboardAndContent.user_dashboard');
-});
-
+// ADMIN
 Route::get('/admin_dashboard', function() {
     return view('manageDashboardAndContent.admin_dashboard');
 });
@@ -33,6 +27,20 @@ Route::get('/admin_profile', function() {
     return view('manageProfile.admin_profile');
 });
 
+Route::get('/listofuser', function() {
+    return view('manageUserRecord.user_events_record');
+});
+
+
+// USER
+Route::get('/user_dashboard', function() {
+    return view('manageDashboardAndContent.user_dashboard');
+});
+
 Route::get('/user_profile', function() {
     return view('manageProfile.user_profile');
+});
+
+Route::get('/about_us', function() {
+    return view('manageDashboardAndContent.about_us');
 });
