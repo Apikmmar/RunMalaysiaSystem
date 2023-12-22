@@ -45,6 +45,14 @@ Route::get('/user_dashboard', function() {
     return view('manageDashboardAndContent.user_dashboard');
 });
 
+Route::get('/all_event', function() {
+    return view('manageRunningEvents.running_events');
+});
+
+Route::get('/view_event', function() {
+    return view('manageRunningEvents.event_details');
+});
+
 Route::get('/user_profile', function() {
     return view('manageProfile.user_profile');
 });
