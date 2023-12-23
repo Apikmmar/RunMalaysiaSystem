@@ -21,7 +21,7 @@ Route::get('/', function () {
 });
 
 
-// ADMIN
+// this 2 should share 1 file
 Route::get('/admin_dashboard', function() {
     return view('manageDashboardAndContent.admin_dashboard');
 });
@@ -29,6 +29,7 @@ Route::get('/user_dashboard', function() {
     return view('manageDashboardAndContent.user_dashboard');
 });
 
+// this 2 should share 1 file
 Route::get('/admin_profile', function() {
     return view('manageProfile.admin_profile');
 });
@@ -36,10 +37,18 @@ Route::get('/user_profile', function() {
     return view('manageProfile.user_profile');
 });
 
+
 Route::get('/about_us', function() {
     return view('manageDashboardAndContent.about_us');
 });
 
+Route::get('/login', function() {
+    return view('manageRegistrationAndLogin.login');
+});
+
+Route::get('/register', function() {
+    return view('manageRegistrationAndLogin.register');
+});
 
 // ADMINISTRATOR
 Route::get('/manage_events', [AdminEventsController::class, 'readAllEvent'])->name('manage_events');

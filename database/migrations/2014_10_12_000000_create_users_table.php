@@ -16,9 +16,9 @@ return new class extends Migration
             $table->foreignId('role_id');
             $table->string('user_fullname');
             $table->integer('user_ic');
-            $table->string('user_address');
-            $table->integer('user_age');
-            $table->string('user_photopath');
+            $table->string('user_address')->nullable();
+            $table->integer('user_age')->nullable();
+            $table->string('user_photopath')->nullable();
             $table->string('user_email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('user_username');

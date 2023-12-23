@@ -1,5 +1,5 @@
 @extends('components.master')
-{{-- style="border: 1px solid black" --}}
+
 @section('content')
 
     <br>
