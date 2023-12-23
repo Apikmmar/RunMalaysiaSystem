@@ -28,10 +28,6 @@ Route::get('/admin_profile', function() {
     return view('manageProfile.admin_profile');
 });
 
-Route::get('/event_details', function() {
-    return view('manageRunningEvents.manage_event_details');
-});
-
 Route::get('/listofuser', function() {
     return view('manageUserRecord.user_events_record');
 });
@@ -58,8 +54,10 @@ Route::get('/about_us', function() {
     return view('manageDashboardAndContent.about_us');
 });
 
-Route::get('/manage_events', function() {
-    return view('manageRunningEvents.manage_events');
-})->name('manage_events');
 
+Route::get('/manage_events', [AdminEventsController::class, 'readAllEvent'])->name('manage_events');
 Route::post('/manage_events', [AdminEventsController::class, 'createEvent']);
+Route::delete('/manage_events/{id}', [AdminEventsController::class, 'destroyEvent']);
+
+Route::get('/event_details/{id}', [AdminEventsController::class, 'showEventDetails']);
+Route::post('/event_details/{id}', [AdminEventsController::class, 'updateEvent']);

@@ -4,55 +4,12 @@
     
     <br>
     <div class="container">
-        @if(session('success'))
-            <div id="success-message" class="alert alert-success">
-                {{ session('success') }}
-            </div>
-        @endif
-        <div class="d-flex flex-column bd-highlight mb-3">
-            <div class="bd-highlight">
-                <p class="h4 fw-bold text-center">
-                    No Listed Events Yet.
-                </p>
-                <p class="h4 fw-bold">
-                    Listed Events:
-                </p>
-            </div>
-            <div class="bd-highlight">
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th scope="col" class="text-center">#</th>
-                            <th scope="col" class="text-center">Event Name</th>
-                            <th scope="col" class="text-center">Date</th>
-                            <th scope="col" class="text-center">Time</th>
-                            <th scope="col" class="text-center">Location</th>
-                            <th scope="col" class="text-center">Operation</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <th scope="row" class="text-center">1</th>
-                            <td class="text-center">Mark</td>
-                            <td class="text-center">Otto</td>
-                            <td class="text-center">Otto</td>
-                            <td class="text-center">list user</td>
-                            <td class="text-center">
-                                <button class="btn">
-                                    <a href="/event_details">
-                                        <img src="{{ asset('images/edit.png') }}" class="operation_icon" alt="delete_user.png">
-                                    </a>
-                                </button>
-                                <button class="btn">
-                                    <img src="{{ asset('images/garbage.png') }}" class="operation_icon" alt="delete_user.png">
-                                </button>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+
+    @if(session('success'))
+        <div id="success-message" class="alert alert-success">
+            {{ session('success') }}
         </div>
-        <br>
+    @endif
         <form action="/manage_events" method="post">
             @csrf
             <div>
@@ -115,13 +72,69 @@
             <div class="d-flex justify-content-center">
                 <div>
                     <button type="reset" class="btn btn-danger fw-bold">Reset All</button>
-                    @foreach (range(1, 5) as $index)
-                        &nbsp;
-                    @endforeach
+                @foreach (range(1, 5) as $index)
+                    &nbsp;
+                @endforeach
                     <button type="submit" class="btn btn-primary fw-bold">Add New Event</button>
                 </div>
             </div>
         </form>
+        <br>
+        <div class="d-flex flex-column bd-highlight mb-3">
+            <div class="bd-highlight">
+
+            @if ($events->isNotEmpty())
+                <p class="h4 fw-bold">
+                    Listed Events:
+                </p>
+                <div class="bd-highlight">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col" class="text-center">#</th>
+                                <th scope="col" class="text-center">Event Name</th>
+                                <th scope="col" class="text-center">Date</th>
+                                <th scope="col" class="text-center">Time</th>
+                                <th scope="col" class="text-center">Location</th>
+                                <th scope="col" class="text-center">Operation</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        @php $number = 1; @endphp
+                        @foreach ($events as $event)
+                            <tr>
+                                <th scope="row" class="text-center">{{ $number }}</th>
+                                <td class="text-center">{{ $event->event_name }}</td>
+                                <td class="text-center">{{ $event->event_date->format('j F Y') }}</td>
+                                <td class="text-center">{{ $event->event_time->format('h:i A') }}</td>
+                                <td class="text-center">{{ $event->event_location }}</td>
+                                <td class="text-center">
+                                    <a href="/event_details/{{ $event->id }}" class="btn">
+                                        <img src="{{ asset('images/edit.png') }}" class="operation_icon" alt="delete_user.png">
+                                    </a>
+                                    <form action="/manage_events/{{ $event->id }}" method="POST" style="display: inline;" onsubmit="return confirm('Are you sure you want to delete this event?');">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn">
+                                            <img src="{{ asset('images/garbage.png') }}" class="operation_icon" alt="delete_icon.png">
+                                        </button>
+                                    </form>
+                                </td>
+                            </tr>
+                            @php $number = $number + 1; @endphp
+                        @endforeach
+                        </tbody>
+                    </table>
+                </div>
+            @else
+                <p class="h4 fw-bold text-center">
+                    No Listed Events Yet.
+                </p>
+            @endif
+            
+            </div>
+            
+        </div>
     </div>
 
 @endsection

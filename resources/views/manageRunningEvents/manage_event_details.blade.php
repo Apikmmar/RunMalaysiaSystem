@@ -3,8 +3,14 @@
 @section('content')
 
     <br>
+    <script>
+        alert("{{ $event->name }}");
+    </script>
+    
     <div class="container">
-        <form action="" method="post">
+        <form action="event_details/{{ $event->id }}" method="post">
+            @csrf
+            @method('PUT')
             <div>
                 <p class="h4 fw-bold">NEW EVENTS:</p>
             </div>
@@ -15,7 +21,7 @@
                             <label for="exampleFormControlInput1" class="form-label">Event Name:</label>
                         </div>
                         <div class="col-8">
-                            <input type="input" class="form-control" name="eventname" placeholder="Event Name">
+                            <input type="input" class="form-control" name="eventname" value="{{ $event->name }}" placeholder="Event Name">
                         </div>
                     </div>
                     <div class="d-flex mb-3">
@@ -23,7 +29,7 @@
                             <label for="eventdate" class="form-label">Event Date:</label>
                         </div>
                         <div class="col-8">
-                            <input type="date" class="form-control" name="eventdate" placeholder="Event Date">
+                            <input type="date" class="form-control" name="eventdate" value="{{ $event->date }}" placeholder="Event Date">
                         </div>                        
                     </div>
                     <div class="d-flex mb-3">
@@ -31,7 +37,7 @@
                             <label for="formFile" class="form-label">Event Banner:</label>
                         </div>
                         <div class="col-8">
-                            <input class="form-control" type="file" id="formFile" name="photo">
+                            <input class="form-control" type="file" id="formFile" value="{{ $event->bannerpath }}" name="photo">
                         </div>
                     </div>
                 </div>
@@ -41,7 +47,7 @@
                             <label for="exampleFormControlInput1" class="form-label">Event Location:</label>
                         </div>
                         <div class="col-8">
-                            <input type="input" class="form-control" name="eventlocation" placeholder="Event Location">
+                            <input type="input" class="form-control" name="eventlocation" value="{{ $event->location }}" placeholder="Event Location">
                         </div>
                     </div>
                     <div class="d-flex mb-3">
@@ -49,7 +55,7 @@
                             <label for="eventtime" class="form-label">Event Time:</label>
                         </div>
                         <div class="col-8">
-                            <input type="time" class="form-control" name="eventtime" id="eventtime" placeholder="Event Time">
+                            <input type="time" class="form-control" name="eventtime" id="eventtime" value="{{ $event->time }}" placeholder="Event Time">
                         </div>
                     </div>
                     <div class="d-flex mb-3">
@@ -57,7 +63,7 @@
                             <label class="form-label">Event Description:</label>
                         </div>
                         <div class="col-8">
-                            <textarea class="form-control" aria-label="With textarea" name="eventlocation" placeholder="Event Description" ></textarea>
+                            <textarea class="form-control" aria-label="With textarea" name="eventlocation" placeholder="Event Description" >{{ $event->desc }}</textarea>
                         </div>
                     </div>
                 </div>
@@ -68,7 +74,7 @@
                     @foreach (range(1, 5) as $index)
                         &nbsp;
                     @endforeach
-                    <button type="submit" class="btn btn-info fw-bold">Add New Event</button>
+                    <button type="submit" class="btn btn-info fw-bold">Update Event</button>
                 </div>
             </div>
         </form>
