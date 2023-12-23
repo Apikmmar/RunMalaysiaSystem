@@ -3,12 +3,13 @@
 @section('content')
 
     <br>
-    <script>
-        alert("{{ $event->name }}");
-    </script>
-    
     <div class="container">
-        <form action="event_details/{{ $event->id }}" method="post">
+    @if(session('success'))
+        <div id="success-message" class="alert alert-success">
+            {{ session('success') }}
+        </div>
+    @endif
+        <form action="/event_details/{{ $event->id }}" method="post">
             @csrf
             @method('PUT')
             <div>
@@ -21,7 +22,7 @@
                             <label for="exampleFormControlInput1" class="form-label">Event Name:</label>
                         </div>
                         <div class="col-8">
-                            <input type="input" class="form-control" name="eventname" value="{{ $event->name }}" placeholder="Event Name">
+                            <input type="input" class="form-control" name="eventname" value="{{ $event->event_name }}" placeholder="Event Name">
                         </div>
                     </div>
                     <div class="d-flex mb-3">
@@ -29,7 +30,7 @@
                             <label for="eventdate" class="form-label">Event Date:</label>
                         </div>
                         <div class="col-8">
-                            <input type="date" class="form-control" name="eventdate" value="{{ $event->date }}" placeholder="Event Date">
+                            <input type="date" class="form-control" name="eventdate" value="{{ $event->event_date }}" placeholder="Event Date">
                         </div>                        
                     </div>
                     <div class="d-flex mb-3">
@@ -37,7 +38,7 @@
                             <label for="formFile" class="form-label">Event Banner:</label>
                         </div>
                         <div class="col-8">
-                            <input class="form-control" type="file" id="formFile" value="{{ $event->bannerpath }}" name="photo">
+                            <input class="form-control" type="file" id="formFile" value="{{ $event->event_bannerpath }}" name="photo">
                         </div>
                     </div>
                 </div>
@@ -47,7 +48,7 @@
                             <label for="exampleFormControlInput1" class="form-label">Event Location:</label>
                         </div>
                         <div class="col-8">
-                            <input type="input" class="form-control" name="eventlocation" value="{{ $event->location }}" placeholder="Event Location">
+                            <input type="input" class="form-control" name="eventlocation" value="{{ $event->event_location }}" placeholder="Event Location">
                         </div>
                     </div>
                     <div class="d-flex mb-3">
@@ -55,7 +56,7 @@
                             <label for="eventtime" class="form-label">Event Time:</label>
                         </div>
                         <div class="col-8">
-                            <input type="time" class="form-control" name="eventtime" id="eventtime" value="{{ $event->time }}" placeholder="Event Time">
+                            <input type="time" class="form-control" name="eventtime" id="eventtime" value="{{ $event->event_time }}" placeholder="Event Time">
                         </div>
                     </div>
                     <div class="d-flex mb-3">
@@ -63,7 +64,7 @@
                             <label class="form-label">Event Description:</label>
                         </div>
                         <div class="col-8">
-                            <textarea class="form-control" aria-label="With textarea" name="eventlocation" placeholder="Event Description" >{{ $event->desc }}</textarea>
+                            <textarea class="form-control" aria-label="With textarea" name="eventdesc" placeholder="Event Description" >{{ $event->event_desc }}</textarea>
                         </div>
                     </div>
                 </div>

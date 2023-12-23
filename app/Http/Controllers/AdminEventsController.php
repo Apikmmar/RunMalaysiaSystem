@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Event;
+use App\Models\Participant;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
@@ -54,8 +55,21 @@ class AdminEventsController extends Controller
 
     public function updateEvent(Request $request, $id) {
         $event = Event::findOrFail($id);
-        $event->update($request->all());
 
-        return redirect('event_details/'.$id)->with('success', 'Event updated successfully');
+        $input['event_name'] = $request->eventname;
+        $input['event_desc'] = $request->eventdesc;
+        $input['event_date'] = $request->eventdate;
+        $input['event_time'] = $request->eventtime;
+        $input['event_location'] = $request->eventlocation;
+
+        if ($file = $request->file('eventphoto')) {
+            $eventphoto = $file->getClientOriginalName();
+            $file->move(public_path('images'), $eventphoto);
+            $input['event_bannerpath'] = $eventphoto;
+        }
+
+        $event->update($input);
+
+        return redirect()->route('manage_events')->with('success', 'Event updated successfully');
     }
 }
