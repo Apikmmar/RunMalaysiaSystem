@@ -9,7 +9,7 @@
             {{ session('success') }}
         </div>
     @endif
-        <form action="/manage_event_details/{{ $event->id }}" method="post">
+        <form action="/manage_event_details/{{ $event->id }}" method="post" enctype="multipart/form-data">
             @csrf
             @method('PUT')
             <div>
@@ -35,10 +35,10 @@
                     </div>
                     <div class="d-flex mb-3">
                         <div class="col-3 d-flex align-items-center">
-                            <label for="formFile" class="form-label">Event Banner:</label>
+                            <label for="eventphoto" class="form-label">Event Banner:</label>
                         </div>
                         <div class="col-8">
-                            <input class="form-control" type="file" id="formFile" value="{{ $event->event_bannerpath }}" name="photo">
+                            <input class="form-control" type="file" id="eventphoto" value="{{ $event->event_bannerpath }}" name="eventphoto">
                         </div>
                     </div>
                 </div>

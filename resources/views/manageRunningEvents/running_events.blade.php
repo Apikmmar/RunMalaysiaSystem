@@ -9,7 +9,7 @@
         <div class="d-flex justify-content-evenly">
             @for ($j = $i; $j < min($i + 3, $eventCount); $j++)
                 <div class="card" style="width: 25rem; height: 25rem;">
-                    <img src="{{ $events[$j]->event_bannerpath }}" class="card-img-top" style="object-fit: cover; height: 65%;" alt="running-event-poster">
+                    <img src="{{ asset('storage/' . $events[$j]->event_bannerpath) }}" class="card-img-top" style="object-fit: cover; height: 65%;" alt="running-event-poster">
                     <div class="card-body">
                         <h5 class="card-title fw-bold">{{ $events[$j]->event_name }}</h5>
                         <p class="card-text">{{ $events[$j]->event_date }} {{ $events[$j]->event_time }} {{ $events[$j]->event_location }}</p>

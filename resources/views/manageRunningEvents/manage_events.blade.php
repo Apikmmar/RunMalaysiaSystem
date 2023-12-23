@@ -10,7 +10,7 @@
             {{ session('success') }}
         </div>
     @endif
-        <form action="/manage_events" method="post">
+        <form action="/manage_events" method="post" enctype="multipart/form-data">
             @csrf
             <div>
                 <p class="h4 fw-bold">NEW EVENTS:</p>
@@ -35,10 +35,10 @@
                     </div>
                     <div class="d-flex mb-3">
                         <div class="col-3 d-flex align-items-center">
-                            <label for="formFile" class="form-label">Event Banner:</label>
+                            <label for="eventphoto" class="form-label">Event Banner:</label>
                         </div>
                         <div class="col-8">
-                            <input class="form-control" type="file" id="formFile" name="eventphoto">
+                            <input class="form-control" type="file" id="eventphoto" name="eventphoto">
                         </div>
                     </div>
                 </div>

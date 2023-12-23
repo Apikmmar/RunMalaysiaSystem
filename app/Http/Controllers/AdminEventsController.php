@@ -16,12 +16,12 @@ class AdminEventsController extends Controller
         $input['event_time'] = $request->eventtime;
         $input['event_location'] = $request->eventlocation;
         
-        if($file = $request->file('eventphoto')) {
-            $eventphoto = $file->getClientOriginalName();
-            $file->move(public_path('images'), $eventphoto);
-            $input['event_bannerpath'] = $eventphoto;
+        if ($request->hasFile('eventphoto')) {
+            $file = $request->file('eventphoto');
+            $path = $file->store('eventphoto', 'public');
+            $input['event_bannerpath'] = $path;
         }
-
+        
         Event::create($input);
 
         return redirect('manage_events')->with('success', 'Event registration successful!.');;
@@ -64,10 +64,10 @@ class AdminEventsController extends Controller
         $input['event_time'] = $request->eventtime;
         $input['event_location'] = $request->eventlocation;
 
-        if ($file = $request->file('eventphoto')) {
-            $eventphoto = $file->getClientOriginalName();
-            $file->move(public_path('images'), $eventphoto);
-            $input['event_bannerpath'] = $eventphoto;
+        if ($request->hasFile('eventphoto')) {
+            $file = $request->file('eventphoto');
+            $path = $file->store('images', 'public');
+            $input['event_bannerpath'] = $path;
         }
 
         $event->update($input);

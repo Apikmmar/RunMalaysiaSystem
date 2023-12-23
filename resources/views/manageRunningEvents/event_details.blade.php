@@ -10,7 +10,7 @@
         <br>
         <div class="d-flex">
             <div class="col-8">
-                <img src="{{ $event->event_bannerpath }}" alt="running_banner_poster" class="imagebanner">
+                <img src="{{ asset('storage/' . $event->event_bannerpath) }}" alt="running_banner_poster" class="imagebanner">
             </div>
             <div class="col-4 d-flex justify-content-center align-items-center">
                 <div class="box-info">
