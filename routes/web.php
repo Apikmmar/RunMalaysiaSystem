@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminEventsController;
+use App\Http\Controllers\UserEventsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -54,10 +55,15 @@ Route::get('/about_us', function() {
     return view('manageDashboardAndContent.about_us');
 });
 
-
+// ADMINISTRATOR
 Route::get('/manage_events', [AdminEventsController::class, 'readAllEvent'])->name('manage_events');
 Route::post('/manage_events', [AdminEventsController::class, 'createEvent']);
 Route::delete('/manage_events/{id}', [AdminEventsController::class, 'destroyEvent']);
 
 Route::get('/manage_event_details/{id}', [AdminEventsController::class, 'showEventDetails'])->name('manage_event_details');
 Route::put('/manage_event_details/{id}', [AdminEventsController::class, 'updateEvent']);
+
+// USER
+Route::get('/all_event', [UserEventsController::class, 'retrieveAllEvent'])->name('all_event');
+
+Route::get('/view_event/{id}', [UserEventsController::class, 'retrieveEventDetails'])->name('view_event');

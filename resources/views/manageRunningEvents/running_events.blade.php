@@ -4,33 +4,22 @@
     
     <br>
     <div class="container">
-        <div class="d-flex justify-content-between">
-            <div class="card" style="width: 25rem; height: 25rem;">
-                <img src="{{ asset('images/run-event2.jpg') }}" class="card-img-top" style="object-fit: cover; height: 65%;" alt="running-event-poster">
-                <div class="card-body">
-                    <h5 class="card-title fw-bold">Event Name</h5>
-                    <p class="card-text"> event time event date event location</p>
-                    <a href="/view_event" class="btn btn-primary">Join Event</a>
+    @php $eventCount = count($events); @endphp
+    @for ($i = 0; $i < $eventCount; $i += 3)
+        <div class="d-flex justify-content-evenly">
+            @for ($j = $i; $j < min($i + 3, $eventCount); $j++)
+                <div class="card" style="width: 25rem; height: 25rem;">
+                    <img src="{{ $events[$j]->event_bannerpath }}" class="card-img-top" style="object-fit: cover; height: 65%;" alt="running-event-poster">
+                    <div class="card-body">
+                        <h5 class="card-title fw-bold">{{ $events[$j]->event_name }}</h5>
+                        <p class="card-text">{{ $events[$j]->event_date }} {{ $events[$j]->event_time }} {{ $events[$j]->event_location }}</p>
+                        <a href="{{ route('view_event', $events[$j]->id) }}" class="btn btn-primary">Join Event</a>
+                    </div>
                 </div>
-            </div>
-
-            <div class="card" style="width: 25rem; height: 25rem;">
-                <img src="{{ asset('images/run-event2.jpg') }}" class="card-img-top" style="object-fit: cover; height: 65%;" alt="running-event-poster">
-                <div class="card-body">
-                    <h5 class="card-title fw-bold">Event Name</h5>
-                    <p class="card-text"> event time event date event location</p>
-                    <a href="/view_event" class="btn btn-primary">Join Event</a>
-                </div>
-            </div>
-            <div class="card" style="width: 25rem; height: 25rem;">
-                <img src="{{ asset('images/run-event2.jpg') }}" class="card-img-top" style="object-fit: cover; height: 65%;" alt="running-event-poster">
-                <div class="card-body">
-                    <h5 class="card-title fw-bold">Event Name</h5>
-                    <p class="card-text"> event time event date event location</p>
-                    <a href="/view_event" class="btn btn-primary">Join Event</a>
-                </div>
-            </div>
+            @endfor
         </div>
+        <br>
+    @endfor    
     </div>
 
 @endsection
