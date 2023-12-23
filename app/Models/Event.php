@@ -18,7 +18,7 @@ class Event extends Model
         'event_bannerpath',
     ];
 
-    public function participant()
+    public function participants()
     {
         return $this->hasMany(Participant::class);
     }

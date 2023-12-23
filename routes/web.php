@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminEventsController;
+use App\Http\Controllers\AdminUsersController;
 use App\Http\Controllers\UserEventsController;
 use Illuminate\Support\Facades\Route;
 
@@ -24,29 +25,13 @@ Route::get('/', function () {
 Route::get('/admin_dashboard', function() {
     return view('manageDashboardAndContent.admin_dashboard');
 });
-
-Route::get('/admin_profile', function() {
-    return view('manageProfile.admin_profile');
-});
-
-Route::get('/listofuser', function() {
-    return view('manageUserRecord.user_events_record');
-});
-
-
-// USER
 Route::get('/user_dashboard', function() {
     return view('manageDashboardAndContent.user_dashboard');
 });
 
-Route::get('/all_event', function() {
-    return view('manageRunningEvents.running_events');
+Route::get('/admin_profile', function() {
+    return view('manageProfile.admin_profile');
 });
-
-Route::get('/view_event', function() {
-    return view('manageRunningEvents.event_details');
-});
-
 Route::get('/user_profile', function() {
     return view('manageProfile.user_profile');
 });
@@ -55,13 +40,18 @@ Route::get('/about_us', function() {
     return view('manageDashboardAndContent.about_us');
 });
 
+
 // ADMINISTRATOR
 Route::get('/manage_events', [AdminEventsController::class, 'readAllEvent'])->name('manage_events');
 Route::post('/manage_events', [AdminEventsController::class, 'createEvent']);
 Route::delete('/manage_events/{id}', [AdminEventsController::class, 'destroyEvent']);
 
-Route::get('/manage_event_details/{id}', [AdminEventsController::class, 'showEventDetails'])->name('manage_event_details');
+Route::get('/manage_event_details/{id}', [AdminEventsController::class, 'showEventDetailsAndParticipant'])->name('manage_event_details');
 Route::put('/manage_event_details/{id}', [AdminEventsController::class, 'updateEvent']);
+
+Route::get('/listofuser', [AdminUsersController::class, 'retrieveAllUser'])->name('list_of_user');
+Route::delete('/listofuser/{id}', [AdminUsersController::class, 'destroyUser']);
+
 
 // USER
 Route::get('/all_event', [UserEventsController::class, 'retrieveAllEvent'])->name('all_event');

@@ -109,9 +109,9 @@
                                 <td class="text-center">{{ $event->event_time->format('h:i A') }}</td>
                                 <td class="text-center">{{ $event->event_location }}</td>
                                 <td class="text-center">
-                                    <a href="{{ route('manage_event_details', $event->id) }}" class="btn">
-                                        <img src="{{ asset('images/edit.png') }}" class="operation_icon" alt="delete_user.png">
-                                    </a>
+                                    <a href="/manage_event_details/{{ $event->id }}" class="btn">
+                                        <img src="{{ asset('images/edit.png') }}" class="operation_icon" alt="edit.png">
+                                    </a>                                    
                                     <form action="/manage_events/{{ $event->id }}" method="POST" style="display: inline;" onsubmit="return confirm('Are you sure you want to delete this event?');">
                                         @csrf
                                         @method('DELETE')

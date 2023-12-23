@@ -4,11 +4,20 @@
 
     <br>
     <div class="container">
+
+    @if(session('success'))
+        <div id="success-message" class="alert alert-success">
+            {{ session('success') }}
+        </div>
+    @endif
         <div class="d-flex flex-column bd-highlight mb-3">
             <div class="bd-highlight">
+            
+            @if ($users->isEmpty())
                 <p class="h4 fw-bold text-center">
                     No Registered User Yet.
                 </p>
+            @else
                 <p class="h4 fw-bold">
                     Listed User:
                 </p>
@@ -25,19 +34,41 @@
                         </tr>
                     </thead>
                     <tbody>
+                    @php $number = 1; @endphp
+                    @foreach ($users as $user)    
                         <tr>
-                            <th scope="row" class="text-center">1</th>
-                            <td class="text-center">Mark</td>
-                            <td class="text-center">Otto</td>
-                            <td class="text-center">list user</td>
+                            <th scope="row" class="text-center">{{ $number }}</th>
+                            <td class="text-center">{{ $user->user_ic }}</td>
+                            <td class="text-center">{{ $user->user_fullname }}</td>
                             <td class="text-center">
-                                <button class="btn">
-                                    <img src="{{ asset('images/garbage.png') }}" class="operation_icon" alt="delete_user.png">
-                                </button>
+                            @if ($user->participants->isEmpty())
+                                <p>No events joined</p>
+                            @else
+                                <ul style="list-style-position: inside;">
+                                    @foreach ($user->participants as $participant)
+                                        <li>
+                                            Event: {{ $participant->event->event_name }}
+                                        </li>
+                                    @endforeach
+                                </ul>
+                            @endif
+                            </td>
+                            <td class="text-center">
+                                <form action="/listofuser/{{ $user->id }}" method="post" style="display: inline;" onsubmit="return confirm('Are you sure you want to delete this user?');">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button class="btn">
+                                        <img src="{{ asset('images/garbage.png') }}" class="operation_icon" alt="delete_user.png">
+                                    </button>
+                                </form>
                             </td>
                         </tr>
+                        @php $number = $number + 1; @endphp
+                    @endforeach
                     </tbody>
                 </table>
+            @endif
+
             </div>
         </div>
     </div>

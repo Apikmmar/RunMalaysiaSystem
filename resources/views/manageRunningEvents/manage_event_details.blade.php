@@ -82,37 +82,40 @@
         <br>
         <div class="d-flex flex-column bd-highlight mb-3">
             <div class="bd-highlight">
-                <p class="h4 fw-bold text-center">
-                    No Participant Yet.
-                </p>
+            
+            @if ($participants->isNotEmpty())
                 <p class="h4 fw-bold">
                     Listed Participants:
                 </p>
             </div>
-            <div class="bd-highlight">
-                <table class="table">
+            <div class="bd-highlight d-flex justify-content-center">
+                <table class="table" style="width: 80%;">
                     <thead>
                         <tr>
                             <th scope="col" class="text-center">#</th>
                             <th scope="col" class="text-center">Participant Name</th>
                             <th scope="col" class="text-center">Participant IC Number</th>
-                            <th scope="col" class="text-center">Remove Registration</th>
                         </tr>
                     </thead>
                     <tbody>
+                    @php $number = 1; @endphp
+                    @foreach ($participants as $participant)
                         <tr>
-                            <th scope="row" class="text-center">1</th>
-                            <td class="text-center">Otto</td>
-                            <td class="text-center">list user</td>
-                            <td class="text-center">
-                                <button class="btn">
-                                    <img src="{{ asset('images/garbage.png') }}" class="operation_icon" alt="delete_user.png">
-                                </button>
-                            </td>
+                            <th scope="row" class="text-center">{{ $number }}</th>
+                            <td class="text-center">{{ $participant->user->user_fullname }}</td>
+                            <td class="text-center">{{ $participant->user->user_ic }}</td>
                         </tr>
+                    @php $number = $number + 1; @endphp
+                    @endforeach
                     </tbody>
                 </table>
             </div>
+            @else    
+                <p class="h4 fw-bold text-center">
+                    No Participant Yet.
+                </p>
+            @endif
+
         </div>
     </div>
 

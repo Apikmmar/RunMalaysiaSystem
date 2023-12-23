@@ -46,10 +46,13 @@ class AdminEventsController extends Controller
         return redirect('manage_events')->with('success', 'Event deleted successful!.');
     }
 
-    public function showEventDetails($id) {
+    public function showEventDetailsAndParticipant($id) {
         $event = Event::findOrFail($id);
 
-        return view('manageRunningEvents.manage_event_details', compact('event'));
+        $event2 = Event::findOrFail($id);
+        $participants = $event2->participants;
+
+        return view('manageRunningEvents.manage_event_details', compact('event', 'participants'));
     }
 
     public function updateEvent(Request $request, $id) {
