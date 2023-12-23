@@ -70,6 +70,6 @@ class AdminEventsController extends Controller
 
         $event->update($input);
 
-        return redirect()->route('manage_events')->with('success', 'Event updated successfully');
+        return redirect()->route('manage_events')->with('success', 'Event updated successful!');
     }
 }

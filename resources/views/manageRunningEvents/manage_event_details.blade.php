@@ -9,7 +9,7 @@
             {{ session('success') }}
         </div>
     @endif
-        <form action="/event_details/{{ $event->id }}" method="post">
+        <form action="/manage_event_details/{{ $event->id }}" method="post">
             @csrf
             @method('PUT')
             <div>

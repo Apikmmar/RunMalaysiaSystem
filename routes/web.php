@@ -59,5 +59,5 @@ Route::get('/manage_events', [AdminEventsController::class, 'readAllEvent'])->na
 Route::post('/manage_events', [AdminEventsController::class, 'createEvent']);
 Route::delete('/manage_events/{id}', [AdminEventsController::class, 'destroyEvent']);
 
-Route::get('/event_details/{id}', [AdminEventsController::class, 'showEventDetails'])->name('event_details');
-Route::put('/event_details/{id}', [AdminEventsController::class, 'updateEvent']);
+Route::get('/manage_event_details/{id}', [AdminEventsController::class, 'showEventDetails'])->name('manage_event_details');
+Route::put('/manage_event_details/{id}', [AdminEventsController::class, 'updateEvent']);
