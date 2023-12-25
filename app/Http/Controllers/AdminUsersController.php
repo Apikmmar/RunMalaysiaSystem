@@ -21,7 +21,7 @@ class AdminUsersController extends Controller
         $user->forceDelete();
         Participant::where('user_id', $user->id)->delete();
 
-        return view('/listofuser')->with('success', 'User deleted successfully!');
+        return redirect()->route('list_of_user')->with('success', 'User deleted successfully!');
     }
 
     public function displayUserData() {

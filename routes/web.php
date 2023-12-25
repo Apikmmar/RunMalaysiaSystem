@@ -33,11 +33,8 @@ Route::middleware(['auth'])->group(function () {
 
     // USE BY BOTH USER AND ADMIN
     Route::get('/admin_dashboard', function() {
-        return view('manageDashboardAndContent.admin_dashboard');
-    })->name('adminhome');
-    Route::get('/user_dashboard', function() {
-        return view('manageDashboardAndContent.user_dashboard');
-    })->name('userhome');
+        return view('manageDashboardAndContent.home_dashboard');
+    })->name('homedashboard');
 
     Route::get('/profile', [AdminUsersController::class, 'displayUserData'])->name('profile');
     Route::put('/profile/{id}', [AdminUsersController::class, 'updateUserData']);
@@ -54,7 +51,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/listofuser', [AdminUsersController::class, 'retrieveAllUser'])->name('list_of_user');
     Route::delete('/listofuser/{id}', [AdminUsersController::class, 'destroyUser']);
 
-    
+
     // USER ONLY
     Route::get('/about_us', function() {
         return view('manageDashboardAndContent.about_us');
