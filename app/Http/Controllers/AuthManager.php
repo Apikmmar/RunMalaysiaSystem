@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
-use Illuminate\Contracts\Session\Session;
+use Illuminate\Session\Store;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -11,6 +11,12 @@ use Illuminate\Support\Facades\Hash;
 class AuthManager extends Controller
 {
     //
+    protected $session;
+
+    public function __construct(Store $session) {
+        $this->session = $session;
+    }
+
     public function login() {
         return view('manageRegistrationAndLogin.login');
     }
@@ -76,7 +82,7 @@ class AuthManager extends Controller
     }
 
     public function logout() {
-        Session::flush();
+        $this->session->flush();
         Auth::logout();
 
         return redirect(route('login'));
