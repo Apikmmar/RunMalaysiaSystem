@@ -1,5 +1,5 @@
     {{-- admin --}}
-    <nav class="fixed-top navbar navbar-expand-lg navbar-light bg-white">
+    {{-- <nav class="fixed-top navbar navbar-expand-lg navbar-light bg-white">
         <div class="d-flex justify-content-start align-items-center container-fluid" id="navbarbackcolor">
             <div style="margin:0% 16.5% 0% 10%;">
                 <a class="navbar-brand" href="/admin_dashboard">
@@ -27,15 +27,15 @@
                     <img src="{{ asset('images/profile.png') }}" alt="Profile" class="homeimage2 rounded-circle">
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item" href="/admin_profile">Profile</a>
+                    <a class="dropdown-item" href="/profile">Profile</a>
                     <a class="dropdown-item" href="{{ route('logout') }}">Logout</a>
                 </div>
             </div>
         </div>
-    </nav>
+    </nav> --}}
 
     {{-- user --}}
-    {{-- <nav class="fixed-top navbar navbar-expand-lg navbar-light bg-white">
+    <nav class="fixed-top navbar navbar-expand-lg navbar-light bg-white">
         <div class="d-flex justify-content-start align-items-center container-fluid" id="navbarbackcolor">
             <div style="margin:0% 16.5% 0% 10%;">
                 <a class="navbar-brand" href="/user_dashboard">
@@ -65,9 +65,9 @@
                     <img src="{{ asset('images/profile.png') }}" alt="Profile" class="homeimage2 rounded-circle">
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item" href="/user_profile">Profile</a>
-                    <a class="dropdown-item" href="/logout">Logout</a>
+                    <a class="dropdown-item" href="/profile">Profile</a>
+                    <a class="dropdown-item" href="{{ route('logout') }}">Logout</a>
                 </div>
             </div>
         </div>
-    </nav> --}}
+    </nav>

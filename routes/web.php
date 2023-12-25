@@ -30,10 +30,8 @@ Route::post('/login', [AuthManager::class, 'loginPost'])->name('login.post');
 Route::get('/logout', [AuthManager::class, 'logout'])->name('logout');
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('/about_us', function() {
-        return view('manageDashboardAndContent.about_us');
-    });
 
+    // USE BY BOTH USER AND ADMIN
     Route::get('/admin_dashboard', function() {
         return view('manageDashboardAndContent.admin_dashboard');
     })->name('adminhome');
@@ -41,14 +39,11 @@ Route::middleware(['auth'])->group(function () {
         return view('manageDashboardAndContent.user_dashboard');
     })->name('userhome');
 
-    Route::get('/admin_profile', function() {
-        return view('manageProfile.admin_profile');
-    });
-    Route::get('/user_profile', function() {
-        return view('manageProfile.user_profile');
-    });
+    Route::get('/profile', [AdminUsersController::class, 'displayUserData'])->name('profile');
+    Route::put('/profile/{id}', [AdminUsersController::class, 'updateUserData']);
 
-    // ADMINISTRATOR
+
+    // ADMINISTRATOR ONLY
     Route::get('/manage_events', [AdminEventsController::class, 'readAllEvent'])->name('manage_events');
     Route::post('/manage_events', [AdminEventsController::class, 'createEvent']);
     Route::delete('/manage_events/{id}', [AdminEventsController::class, 'destroyEvent']);
@@ -59,8 +54,14 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/listofuser', [AdminUsersController::class, 'retrieveAllUser'])->name('list_of_user');
     Route::delete('/listofuser/{id}', [AdminUsersController::class, 'destroyUser']);
 
-    // USER
+    
+    // USER ONLY
+    Route::get('/about_us', function() {
+        return view('manageDashboardAndContent.about_us');
+    });
+
     Route::get('/all_event', [UserEventsController::class, 'retrieveAllEvent'])->name('all_event');
 
     Route::get('/view_event/{id}', [UserEventsController::class, 'retrieveEventDetails'])->name('view_event');
+    Route::post('/view_event/{id}', [UserEventsController::class, 'joinEvent']);
 });

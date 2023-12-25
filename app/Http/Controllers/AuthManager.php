@@ -35,9 +35,9 @@ class AuthManager extends Controller
     
             if ($user->role_id == $request->input('role_id')) {
                 if ($user->role_id == 1) {
-                    return redirect()->intended(route('adminhome'));
+                    return redirect()->intended(route('adminhome', ['user' => $user]));
                 } elseif ($user->role_id == 2) {
-                    return redirect()->intended(route('userhome'));
+                    return redirect()->intended(route('userhome' , ['user' => $user]));
                 }
             }
         }
@@ -88,4 +88,3 @@ class AuthManager extends Controller
         return redirect(route('login'));
     }
 }
-

@@ -4,6 +4,11 @@
     
     <br>
     <div class="container">
+    @if(session('success'))
+        <div id="success-message" class="alert alert-success">
+            {{ session('success') }}
+        </div>
+    @endif
         <div>
             <p class="h1 fw-bold">{{ $event->event_name }}</p>
         </div>
@@ -19,7 +24,8 @@
                         <p class="fw-italic text-center"><b>{{ $event->event_location }}</b></p>
                         <p class="fw-italic text-center">{{ $event->event_date }}</p>
                         <p class="fw-italic text-center">{{ $event->event_time }}</p>
-                        <form action="" method="post">
+                        <form action="{{ route('view_event', ['id' => $event->id]) }}" method="post">
+                            @csrf
                             <button type="submit" class="btn btn-primary fw-bold">JOIN EVENT</button>
                         </form>
                     </div>

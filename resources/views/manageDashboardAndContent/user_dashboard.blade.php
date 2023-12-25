@@ -9,7 +9,7 @@
     <div class="container">
         <div class="d-flex flex-column bd-highlight mb-3">
             <div class="bd-highlight d-flex justify-content-center">
-                <a class="h3 fw-bold join-eventlink" href="/about_us">JOIN OUR RUNNING EVENTS NOW!!!</a>
+                <a class="h3 fw-bold join-eventlink" href="/all_event">JOIN OUR RUNNING EVENTS NOW!!!</a>
             </div>
             <br>
             <div class="bd-highlight">

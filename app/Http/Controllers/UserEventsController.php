@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Event;
+use App\Models\Participant;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class UserEventsController extends Controller
 {
@@ -30,4 +32,11 @@ class UserEventsController extends Controller
         return view('manageRunningEvents.event_details', compact('event'));
     }    
     
+    public function joinEvent($id) {
+        $user = Auth::user();
+    
+        Participant::create(['user_id' => $user->id, 'event_id' => $id]);
+    
+        return redirect()->route('view_event', ['id' => $id])->with('success', 'Successfully register to this event!');
+    }
 }
