@@ -10,7 +10,7 @@
     @if(auth()->check() && auth()->user()->role_id == 1)
         <div class="d-flex flex-column bd-highlight mb-3">
             <div class="bd-highlight d-flex justify-content-center">
-                <a class="h3 fw-bold join-eventlink" href="/profile">WELCOME ADMIN NAME</a>
+                <a class="h3 fw-bold join-eventlink" href="/profile">WELCOME ADMIN {{ auth()->user()->user_fullname }}</a>
             </div>
         </div>
     @else

@@ -5,6 +5,8 @@
     <br>
     <div class="container">
     @php $eventCount = count($events); @endphp
+
+    @if ($eventCount > 0)
     @for ($i = 0; $i < $eventCount; $i += 3)
         <div class="d-flex justify-content-evenly">
             @for ($j = $i; $j < min($i + 3, $eventCount); $j++)
@@ -19,7 +21,10 @@
             @endfor
         </div>
         <br>
-    @endfor    
+    @endfor
+    @else
+        <p class="h3 fw-bold text-center">No Available Events.</p>
+    @endif
     </div>
 
 @endsection

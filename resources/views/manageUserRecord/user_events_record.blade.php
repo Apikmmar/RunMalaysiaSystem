@@ -46,9 +46,13 @@
                             @else
                                 <ul style="list-style-position: inside;">
                                     @foreach ($user->participants as $participant)
-                                        <li>
-                                            Event: {{ $participant->event->event_name }}
-                                        </li>
+                                    <li>
+                                    @if($participant->event)
+                                        Event: {{ $participant->event->event_name }}
+                                    @else
+                                        No event available
+                                    @endif
+                                </li>
                                     @endforeach
                                 </ul>
                             @endif

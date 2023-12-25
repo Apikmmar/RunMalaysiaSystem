@@ -24,7 +24,7 @@
             </div>
             <div class="dropdown" style="margin-left: 23%;">
                 <button class="btn p-0" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <img src="{{ asset('images/profile.png') }}" alt="Profile" class="homeimage2 rounded-circle">
+                    <img src="{{ asset('storage/' . auth()->user()->user_photopath) }}" alt="Profile" class="homeimage2 rounded-circle">
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                     <a class="dropdown-item" href="/profile">Profile</a>
@@ -61,7 +61,7 @@
             </div>
             <div class="dropdown" style="margin-left: 22.45%;">
                 <button class="btn p-0" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <img src="{{ asset('images/profile.png') }}" alt="Profile" class="homeimage2 rounded-circle">
+                    <img src="{{ asset('storage/' . auth()->user()->user_photopath) }}" alt="Profile" class="homeimage2 rounded-circle">
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                     <a class="dropdown-item" href="/profile">Profile</a>
@@ -69,5 +69,5 @@
                 </div>
             </div>
         </div>
-    </nav>>
+    </nav>
 @endif

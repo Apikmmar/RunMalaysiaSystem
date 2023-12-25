@@ -90,6 +90,8 @@
         </div>
     </form>
     <br>
+
+@if ($user->role_id == 2)
     <div class="container">
         <div class="d-flex flex-column bd-highlight mb-3">
             <div class="bd-highlight">
@@ -128,6 +130,6 @@
             </div>
         </div>
     </div>
-    
+@endif
 
 @endsection

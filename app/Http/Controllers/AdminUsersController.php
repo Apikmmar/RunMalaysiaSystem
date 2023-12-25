@@ -45,7 +45,7 @@ class AdminUsersController extends Controller
 
         if ($request->hasFile('photo')) {
             $file = $request->file('photo');
-            $path = $file->store('images', 'public');
+            $path = $file->store('user', 'public');
             $input['user_photopath'] = $path;
         }
         

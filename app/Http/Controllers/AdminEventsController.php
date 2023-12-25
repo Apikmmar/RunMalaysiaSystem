@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Event;
+use App\Models\Participant;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
@@ -42,6 +43,7 @@ class AdminEventsController extends Controller
     public function destroyEvent($id) {
         $event = Event::findOrFail($id);
         $event->forceDelete();
+        Participant::where('event_id', $event->id)->delete();
         
         return redirect('manage_events')->with('success', 'Event deleted successful!.');
     }
@@ -66,7 +68,7 @@ class AdminEventsController extends Controller
 
         if ($request->hasFile('eventphoto')) {
             $file = $request->file('eventphoto');
-            $path = $file->store('images', 'public');
+            $path = $file->store('eventphoto', 'public');
             $input['event_bannerpath'] = $path;
         }
 
