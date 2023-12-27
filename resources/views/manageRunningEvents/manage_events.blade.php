@@ -1,3 +1,6 @@
+{{-- BCS3453 [PROJECT]-SEMESTER 2324/1
+Student ID: CB21016
+Student Name: MUHAMMAD AFIQ AMMAR BIN MURAD --}}
 @extends('components.master')
 
 @section('content')
@@ -82,7 +85,6 @@
         <br>
         <div class="d-flex flex-column bd-highlight mb-3">
             <div class="bd-highlight">
-
             @if ($events->isNotEmpty())
                 <p class="h4 fw-bold">
                     Listed Events:
@@ -130,10 +132,8 @@
                 <p class="h4 fw-bold text-center">
                     No Listed Events Yet.
                 </p>
-            @endif
-            
+            @endif 
             </div>
-            
         </div>
     </div>
 

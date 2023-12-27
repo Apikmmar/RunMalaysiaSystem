@@ -1,3 +1,6 @@
+{{-- BCS3453 [PROJECT]-SEMESTER 2324/1
+Student ID: CB21016
+Student Name: MUHAMMAD AFIQ AMMAR BIN MURAD --}}
 @extends('components.master2')
 
 @section('inside')
@@ -7,7 +10,7 @@
         <video src="{{ asset('video/cinematic-running.mp4') }}" autoplay loop muted class="playvid2"></video>
     </div>
     <div class="container">
-        @if(session('success'))
+    @if(session('success'))
         <div class="alert alert-success" id="success-message">
             {{ session('success') }}
         </div>

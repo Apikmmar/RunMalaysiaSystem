@@ -1,3 +1,6 @@
+{{-- BCS3453 [PROJECT]-SEMESTER 2324/1
+Student ID: CB21016
+Student Name: MUHAMMAD AFIQ AMMAR BIN MURAD --}}
 @extends('components.master')
 
 @section('content')
@@ -29,8 +32,7 @@
                 <p class="h6">We also provide end-to-end running event management services, handling everything from registration to setup and ensuring a seamless experience for clients.</p>
             </div>
         </div>
-    @endif
-        
+    @endif  
     </div>
 
 @endsection

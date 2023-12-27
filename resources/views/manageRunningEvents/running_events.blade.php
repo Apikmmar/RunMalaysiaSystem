@@ -1,3 +1,6 @@
+{{-- BCS3453 [PROJECT]-SEMESTER 2324/1
+Student ID: CB21016
+Student Name: MUHAMMAD AFIQ AMMAR BIN MURAD --}}
 @extends('components.master')
 
 @section('content')
@@ -5,7 +8,6 @@
     <br>
     <div class="container">
     @php $eventCount = count($events); @endphp
-
     @if ($eventCount > 0)
     @for ($i = 0; $i < $eventCount; $i += 3)
         <div class="d-flex justify-content-evenly">

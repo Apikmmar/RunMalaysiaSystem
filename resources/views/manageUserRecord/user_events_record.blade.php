@@ -1,23 +1,26 @@
+{{-- BCS3453 [PROJECT]-SEMESTER 2324/1
+Student ID: CB21016
+Student Name: MUHAMMAD AFIQ AMMAR BIN MURAD --}}
 @extends('components.master')
 
 @section('content')
 
     <br>
     <div class="container">
-
     @if(session('success'))
         <div id="success-message" class="alert alert-success">
             {{ session('success') }}
         </div>
     @endif
         <div class="d-flex flex-column bd-highlight mb-3">
+        @if ($users->isEmpty())
             <div class="bd-highlight">
-            
-            @if ($users->isEmpty())
                 <p class="h4 fw-bold text-center">
                     No Registered User Yet.
                 </p>
-            @else
+            </div>
+        @else
+            <div class="bd-highlight">
                 <p class="h4 fw-bold">
                     Listed User:
                 </p>
@@ -71,8 +74,7 @@
                     @endforeach
                     </tbody>
                 </table>
-            @endif
-
+        @endif
             </div>
         </div>
     </div>

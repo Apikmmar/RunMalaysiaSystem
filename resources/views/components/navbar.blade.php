@@ -1,3 +1,6 @@
+{{-- BCS3453 [PROJECT]-SEMESTER 2324/1
+Student ID: CB21016
+Student Name: MUHAMMAD AFIQ AMMAR BIN MURAD --}}
 @if(auth()->check() && auth()->user()->role_id == 1)
     <nav class="fixed-top navbar navbar-expand-lg navbar-light bg-white">
         <div class="d-flex justify-content-start align-items-center container-fluid" id="navbarbackcolor">

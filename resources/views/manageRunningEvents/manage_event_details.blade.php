@@ -1,3 +1,6 @@
+{{-- BCS3453 [PROJECT]-SEMESTER 2324/1
+Student ID: CB21016
+Student Name: MUHAMMAD AFIQ AMMAR BIN MURAD --}}
 @extends('components.master')
 
 @section('content')
@@ -115,7 +118,6 @@
                     No Participant Yet.
                 </p>
             @endif
-
         </div>
     </div>
 
